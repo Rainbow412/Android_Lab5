@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab4</string>
+    <string name="Button1">静态注册</string>
+    <string name="Button2">动态注册</string>
+    <string name="dynamicButton1">Register Broadcast</string>
+    <string name="dynamicButton2">Send</string>
+</resources>
