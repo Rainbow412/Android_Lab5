@@ -8,16 +8,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 
 /**
  * Created by 123 on 2016/10/16.
  */
 public class StaticReceiver extends BroadcastReceiver{
-
+    private String STATICACTION = "Rainbow.example.lab4.staticreceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(intent.getAction().equals("Rainbow.example.lab4.staticreceiver")){
+        if(intent.getAction().equals(STATICACTION)){
             Bundle bundle = intent.getExtras();
             String fruitName = bundle.getString("fruitName", "default value");
             String imgString = bundle.getString("img", "default value");
@@ -42,7 +43,6 @@ public class StaticReceiver extends BroadcastReceiver{
             //绑定Notification，发送通知请求
             Notification notify = builder.build();
             manager.notify(0, notify);
-
         }
     }
 }

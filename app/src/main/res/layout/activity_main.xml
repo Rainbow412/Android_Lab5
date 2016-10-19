@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--静态注册按钮-->
     <Button
         android:id="@+id/staticButton"
         android:layout_width="wrap_content"
@@ -12,6 +13,7 @@
         android:layout_marginTop="@dimen/Button_margin"
         android:text="@string/Button1"/>
 
+    <!--动态注册按钮-->
     <Button
         android:id="@+id/dynamicButton"
         android:layout_width="wrap_content"

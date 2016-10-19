@@ -2,7 +2,11 @@
     <dimen name="Button_margin">100dp</dimen>
 
     <dimen name="static_layout_padding">10dp</dimen>
+    <dimen name="dynamic_layout_margin">10dp</dimen>
+
+    <dimen name="list_divider_height">0.5dp</dimen>
     <dimen name="item_image_margin">3dp</dimen>
     <dimen name="item_text_margin">20dp</dimen>
     <dimen name="item_text_size">30sp</dimen>
+
 </resources>

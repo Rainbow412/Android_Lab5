@@ -13,8 +13,8 @@ import android.widget.EditText;
  * Created by 123 on 2016/10/16.
  */
 public class DynamicActivity extends AppCompatActivity {
-    boolean flag = false;
-
+    boolean flag = false; //记录是否注册
+    private String DYNAMICACTION = "Rainbow.example.lab4.dynamicreceiver";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +26,15 @@ public class DynamicActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(flag==false) {
+                    //注册广播
                     IntentFilter dynamic_filter = new IntentFilter();
-                    dynamic_filter.addAction("Rainbow.example.lab4.dynamicreceiver");
-                    registerReceiver(dynamicReceiver, dynamic_filter);
+                    dynamic_filter.addAction(DYNAMICACTION); //添加动态广播的Action
+                    registerReceiver(dynamicReceiver, dynamic_filter); //注册自定义动态广播消息
                     flag = true;
                     registerButton.setText("Unregister Broadcast");
                 }
                 else{
+                    //注销广播
                     unregisterReceiver(dynamicReceiver);
                     registerButton.setText("Register Broadcast");
                     flag = false;
@@ -45,14 +47,13 @@ public class DynamicActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //发送广播，传递相应文字
                 Bundle bundle = new Bundle();
                 bundle.putString("input", text.getText().toString());
-                Intent intent = new Intent("Rainbow.example.lab4.dynamicreceiver");
+                Intent intent = new Intent(DYNAMICACTION);
                 intent.putExtras(bundle);
                 sendBroadcast(intent);
             }
         });
-
-
     }
 }

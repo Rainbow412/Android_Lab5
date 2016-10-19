@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/dynamic_layout_margin"
     android:orientation="vertical">
-
     <EditText
         android:id="@+id/dynamicEdit"
         android:layout_width="match_parent"
@@ -26,5 +26,4 @@
             android:textAllCaps="false"
             android:text="@string/dynamicButton2"/>
     </LinearLayout>
-
 </LinearLayout>

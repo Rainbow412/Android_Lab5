@@ -14,9 +14,11 @@ import android.os.Bundle;
  * Created by 123 on 2016/10/16.
  */
 public class DynamicReceiver extends BroadcastReceiver {
+    private String DYNAMICACTION = "Rainbow.example.lab4.dynamicreceiver";
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(intent.getAction().equals("Rainbow.example.lab4.dynamicreceiver")){
+        if(intent.getAction().equals(DYNAMICACTION)){
             Bundle bundle = intent.getExtras();
             String input = bundle.getString("input", "default value");
 

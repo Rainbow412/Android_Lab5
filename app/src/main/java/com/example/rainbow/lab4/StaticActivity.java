@@ -17,14 +17,16 @@ import java.util.Map;
  * Created by 123 on 2016/10/16.
  */
 public class StaticActivity extends AppCompatActivity {
+    private String STATICACTION = "Rainbow.example.lab4.staticreceiver";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.static_layout);
 
+        //用simpleAdapter填充ListView
         final List<Map<String, Object>> data = new ArrayList<>();
         int[] imgName = new int[]{R.mipmap.apple,R.mipmap.banana,R.mipmap.cherry,R.mipmap.coco,
-        R.mipmap.kiwi,R.mipmap.orange,R.mipmap.pear,R.mipmap.strawberry,R.mipmap.watermelon};
+        R.mipmap.kiwi,R.mipmap.orange,R.mipmap.pear,R.mipmap.strawberry,R.mipmap.watermelon};//R.xx.xx都是int类型！
         String[] fruitName = new String[]{"Apple","Banana","Cherry","Coco","Kiwi","Orange",
         "Pear","Strawberry","Watermelon"};
         for(int i = 0; i < 9; i++){
@@ -33,7 +35,6 @@ public class StaticActivity extends AppCompatActivity {
             temp.put("fruitName", fruitName[i]);
             data.add(temp);
         }
-
         ListView fruitList = (ListView)findViewById(R.id.fruitList);
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, data, R.layout.item,
                 new String[]{"img", "fruitName"}, new int[]{R.id.img, R.id.fruitName});
@@ -42,7 +43,8 @@ public class StaticActivity extends AppCompatActivity {
         fruitList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent("Rainbow.example.lab4.staticreceiver");
+                //发送广播，传递对应图片和文字
+                Intent intent = new Intent(STATICACTION);
                 Bundle bundle = new Bundle();
                 bundle.putString("img", data.get(position).get("img").toString());
                 bundle.putString("fruitName", data.get(position).get("fruitName").toString());
@@ -50,7 +52,5 @@ public class StaticActivity extends AppCompatActivity {
                 sendBroadcast(intent);
             }
         });
-
-
     }
 }

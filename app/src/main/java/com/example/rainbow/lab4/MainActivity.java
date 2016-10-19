@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         staticButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //跳转至StaticActivity
                 Intent intentStatic = new Intent(MainActivity.this, StaticActivity.class);
                 startActivity(intentStatic);
             }
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         dynamicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //跳转至DynamicActivity
                 Intent intentDynamic = new Intent(MainActivity.this, DynamicActivity.class);
                 startActivity(intentDynamic);
             }
