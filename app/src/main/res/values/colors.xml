@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="listDividerColor">#000000</color>
+
+    <color name="widgetTextColor">#FF0000</color>
+    <color name="widgetBackground">#00FFFFFF</color>
 </resources>
