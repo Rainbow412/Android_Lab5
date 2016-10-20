@@ -20,19 +20,16 @@ public class WidgetDemo extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-
         Intent clickInt = new Intent(context, MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(context, 0, clickInt, 0);
-
         RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_demo);
-
+        //先初始化文字为Widget，图片为苹果
         rv.setTextViewText(R.id.appwidget_text, "Widget");
         rv.setImageViewResource(R.id.appwidget_image, R.mipmap.apple);
-
+        //点击图片打开MainActivity
         rv.setOnClickPendingIntent(R.id.appwidget_image, pi);
-
+        //更新widget
         appWidgetManager.updateAppWidget(appWidgetIds, rv);
-
     }
 
     @Override
@@ -52,18 +49,16 @@ public class WidgetDemo extends AppWidgetProvider {
         Bundle bundle = intent.getExtras();
 
         if (intent.getAction().equals(STATICACTION)) {
-
             String fruitName = bundle.getString("fruitName");
             int img = bundle.getInt("img");
-            Log.d("WidgetDemo", fruitName);
-
+            //根据接收的内容设置文字和图片
             rv.setTextViewText(R.id.appwidget_text, fruitName);
             rv.setImageViewResource(R.id.appwidget_image, img);
 
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             ComponentName thisAppWidget = new ComponentName(context.getPackageName(), WidgetDemo.class.getName());
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
-            appWidgetManager.updateAppWidget(appWidgetIds, rv);
+            //更新widget
+            appWidgetManager.updateAppWidget(thisAppWidget, rv);
 
         }
     }
