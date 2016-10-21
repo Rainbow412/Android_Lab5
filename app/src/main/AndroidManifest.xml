@@ -15,17 +15,18 @@
             android:theme="@style/withBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- StaticActivity -->
         <activity
             android:name=".StaticActivity"
+            android:launchMode="singleInstance"
             android:theme="@style/noBarTheme" />
         <!-- DynamicActivity -->
         <activity
             android:name=".DynamicActivity"
+            android:launchMode="singleInstance"
             android:theme="@style/noBarTheme" />
         <!-- 静态注册广播 -->
         <receiver android:name=".StaticReceiver">
