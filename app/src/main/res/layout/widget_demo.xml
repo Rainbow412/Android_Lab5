@@ -8,18 +8,19 @@
     <ImageView
         android:id="@+id/appwidget_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@mipmap/apple"
         android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/appwidget_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:text="Apple"
         android:textColor="@color/widgetTextColor"
         android:textSize="@dimen/widget_text_size"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:gravity="center_vertical"/>
 
 </LinearLayout>
